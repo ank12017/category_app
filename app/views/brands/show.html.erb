@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<h1> Brand Detail </h1>
+<p>
+  <strong>Name:</strong>
+  <%= @brand.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @brand.category_id %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @brand.about %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @brand.address %>
+</p>
+
+<h1> All Products Of Brand </h1>
+
+<%= @brand.products.each do |product| %><br>
+<strong>id:</strong>
+<td> <%= product.id %></td><br>
+<strong>Image:</strong>
+<td><%= image_tag product.image.url, class: "img-responsive" if product.image.present? %></td><br>
+<strong>Name:</strong>
+  <td> <%= product.name %></td><br>
+  <strong>About:</strong>
+  <td><%= product.about %></td><br>
+  <strong>Address:</strong>
+   <td><%= product.address %></td><br>
+<% end %>
+
+<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<%= link_to 'Back', brands_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<h1> Category Detail </h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @category.image.url %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @category.about %>
+</p>
+
+<h1> All Brands Of Category </h1>
+
+<tr><%= @category.brands.each do |brand| %><br>
+<strong>Id:</strong>
+<td> <%= brand.id %></td><br>
+   <strong>Name:</strong>
+  <td> <%= brand.name %></td><br>
+  <strong>About:</strong>
+  <td><%= brand.about %></td><br>
+  <strong>Address:</strong>
+   <td><%= brand.address %></td>
+   <% end %></tr>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
